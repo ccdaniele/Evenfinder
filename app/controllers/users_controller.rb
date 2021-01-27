@@ -10,10 +10,7 @@ class UsersController < ApplicationController
 
     def update
         @user = User.find(params[:id])
-        #byebug
-        
         @user.update(user_params(:name, :age, :location))
-
         redirect_to user_path(@user)
     end
 

@@ -1,14 +1,13 @@
-<h1> Edit Profile Page </h1> 
+<h1> Edit your profile</h1>
 
-<%= form_for @user do |f| %>
-    <%=f.label :name %>
-    <%= f.text_field  :name %>
-    <br/>
-    <%=f.label :age %>
-    <%= f.number_field  :age %>
-    <br/>
-    <%=f.label :location %>
-    <%= f.text_field  :location %>
-    <br/>
-    <%= f.submit %>
+<%= form_for(@user) do |f| %>
+  <label> Name:</label><br>
+  <%= f.text_field :name %><br>
+  <label> Email:</label><br>
+  <%= f.email_field :email %><br>
+  <label> Age:</label><br>
+  <%= f.number_field :age %><br>
+  <label> Location:</label><br>
+  <%= f.text_field :location %><br>
+   <%= f.submit %>
 <% end %>

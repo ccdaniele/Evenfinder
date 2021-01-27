@@ -1,0 +1,12 @@
+<h1> <%= @activity.name %></h1> 
+
+
+<h3> The groups are </h3>
+
+<% @activity.events.each do |event| %>
+    <li> <%= link_to event.name, event_path(event)  %>  </li> 
+<% end %>
+
+
+<%= link_to "Back", root_path %>
+
