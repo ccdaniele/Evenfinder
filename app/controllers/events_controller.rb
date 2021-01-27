@@ -15,9 +15,7 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
-
     2.times {@event.activities.build}
-
   end
 
   def join
@@ -65,6 +63,9 @@ class EventsController < ApplicationController
       format.html { redirect_to events_url, notice: "Event was successfully destroyed." }
       format.json { head :no_content }
     end
+    
+    @event.activities.destroy_all
+
   end
 
   private
