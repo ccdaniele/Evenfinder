@@ -14,6 +14,25 @@
   <strong>Time:</strong>
   <%= @event.time %>
 </p>
+<br>
+<p>
+<strong> People Attending: </strong> 
+</p>
 
+<% current_event = @event.users.uniq %>
+
+<%current_event.each do |user|  %>
+  <%= user.name %>
+  <br>
+<% end %>
+<br>
+<h3> Event Description: </h3>
+<% @event.activities.each do |activity|  %>
+  <%= activity.name %>
+  <br>
+<% end %>
+<br>
+<%= button_to 'join', join_path %>
+<br>
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

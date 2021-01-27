@@ -26,6 +26,13 @@
     <%= form.datetime_select :time %>
   </div>
 
+
+  <%= form.fields_for :activities do |activity_form| %>
+    <%= activity_form.label :activity_name %>
+    <%= activity_form.text_field :name %>
+  <% end %> 
+
+
   <div class="actions">
     <%= form.submit %>
   </div>

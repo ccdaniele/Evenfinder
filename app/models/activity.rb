@@ -1,4 +1,4 @@
 class Activity < ApplicationRecord
-    belongs_to :event
-
+    has_many :eventactivities
+    has_many :events, through: :eventactivities
 end
