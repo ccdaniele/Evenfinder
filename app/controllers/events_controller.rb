@@ -21,6 +21,7 @@ class EventsController < ApplicationController
   def join
     @event = Event.find(params[:id])
     @event.users << current_user
+    redirect_to event_path(@event)
   end
 
   # GET /events/1/edit
