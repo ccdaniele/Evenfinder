@@ -20,22 +20,23 @@ class EventsController < ApplicationController
 
   def join
     @event = Event.find(params[:id])
-    if current_user.valid?
-    @event.users << current_user
+    
+    Eventuser.create(user: current_user, event: @event)
+    #@event.users << current_user
     redirect_to event_path(@event)
-    else 
-    redirect_to event_path(@event)
-    end
+    
   end
 
   def leave
     @event = Event.find(params[:id])
-
-    delete_user = @event.users.find(current_user.id)
-    @event.users.delete(delete_user)
-
-    #@event.users.reject{|user|user == current_user} 
-    redirect_to event_path(@event)
+    if @event.users.include?(current_user)
+      delete_user = @event.users.find(current_user.id)
+      @event.users.delete(delete_user)
+      redirect_to event_path(@event)
+    else
+      redirect_to event_path(@event)
+    end
+    
   end
 
   # GET /events/1/edit

@@ -2,8 +2,8 @@
 
 
 <h3> The groups are </h3>
-
-<% @activity.events.each do |event| %>
+<% activity_events = @activity.events.uniq %>
+<% activity_events.each do |event| %>
     <li> <%= link_to event.name, event_path(event)  %>  </li> 
 <% end %>
 

@@ -19,21 +19,29 @@
 <strong> People Attending: </strong> 
 </p>
 
-<% current_event = @event.users.uniq %>
+<% current_event = @event.users %>
 
 <%current_event.each do |user|  %>
   <%= user.name %>
   <br>
 <% end %>
+
 <br>
+
 <h3> Event Description: </h3>
 <% @event.activities.each do |activity|  %>
   <%= activity.name %>
   <br>
 <% end %>
 <br>
-<%= button_to 'join', join_path %>
-<%= button_to 'leave', leave_path %>
+
+<% if @event.users.include?(current_user) %>
+  <%= button_to 'leave', leave_path %>
+<% else %>
+  <%= button_to 'join', join_path %>
+<% end %>
+
+
 <br>
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
