@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   post '/events/:id/join', to: 'events#join', as: 'join'
+  post '/events/:id/leave', to: 'events#leave', as: 'leave'
 
 
   resources :events

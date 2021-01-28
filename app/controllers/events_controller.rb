@@ -20,7 +20,21 @@ class EventsController < ApplicationController
 
   def join
     @event = Event.find(params[:id])
+    if current_user.valid?
     @event.users << current_user
+    redirect_to event_path(@event)
+    else 
+    redirect_to event_path(@event)
+    end
+  end
+
+  def leave
+    @event = Event.find(params[:id])
+
+    delete_user = @event.users.find(current_user.id)
+    @event.users.delete(delete_user)
+
+    #@event.users.reject{|user|user == current_user} 
     redirect_to event_path(@event)
   end
 
@@ -65,7 +79,7 @@ class EventsController < ApplicationController
       format.json { head :no_content }
     end
     
-    @event.activities.destroy_all
+    @event.activities = []
 
   end
 
