@@ -2,7 +2,6 @@
 <html>
 <h1><%=link_to "EVENTFINDER", root_path%></h1>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/">Home</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -65,7 +64,7 @@
        <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
-  
+
   <% if current_user %>
 <%=link_to "Sign out", destroy_user_session_path, method: :delete %>
 <%=link_to 'Profile', current_user %>
@@ -73,4 +72,5 @@
 <%=link_to "Sign up", new_user_registration_path %>
 <%=link_to "Sign in", new_user_session_path %>
 <%end%> 
+
 </html>
