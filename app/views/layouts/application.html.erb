@@ -64,6 +64,15 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
+  <body>
+  <div id="main-container" class="container">
+      <div class="row">
+        <div class="col-xs-3">
+  <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </body>
+
   
   
   <%# <% if current_user %>

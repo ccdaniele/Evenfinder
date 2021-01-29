@@ -1,9 +1,20 @@
-<h1> <%= @activity.name %></h1> 
+<h1> <%= @activity.name.capitalize %></h1> 
 
-<h3> The groups are </h3>
+<h3> Here are some groups related events: </h3>
+<br>
 <% activity_events = @activity.events.uniq %>
 <% activity_events.each do |event| %>
-    <li> <%= link_to event.name, event_path(event)  %>  </li> 
+  <div class="col-sm-6">
+    <div class="card text-white bg-dark mb-3" style="width: 50rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%=event.name.capitalize%></h5>
+        <p class="card-text"><%=event.location.capitalize%></p>
+        <p class="card-text"><%=event.time%></p>
+        <a href="/events/<%=event.id%>" class="btn btn-primary">Details</a>
+      </div>
+    </div>
+  </div>
+  <br>
 <% end %>
 
 
