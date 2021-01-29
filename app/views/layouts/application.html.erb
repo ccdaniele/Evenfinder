@@ -1,18 +1,61 @@
 <!DOCTYPE html>
 <html>
+<h1>EVENTFINDER</h1>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+<%# events %>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/events">Events <span class="sr-only">(current)</span></a>
+      </li>
+      <%# Activities %>
+      <li class="nav-item">
+        <a class="nav-link" href="/activities">Activities</a> 
+      </li>
+      <%# User dropdown %>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          User
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/users/<%=current_user%>">Profile</a>
+          <a class="dropdown-item" href="/users/<%=current_user%>/edit">Edit Profile</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
   <head>
-    <title>Project2</title>
+
+<title>Project2</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+</head>
 
   <body>
+  <div id="main-container" class="container">
+      <div class="row">
+        <div class="col-xs-3">
   <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
+  <% if current_user %>
+<%=link_to "Sign out", destroy_user_session_path, method: :delete %>
+<%=link_to 'Profile', current_user %>
+<%else %>
+<%=link_to "Sign up", new_user_registration_path %>
+<%=link_to "Sign in", new_user_session_path %>
+<%end%> 
 </html>
