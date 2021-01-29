@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
-<h1><%=link_to "EVENTFINDER", root_path%></h1>
+<h1 class="text-center"><%=link_to "EVENTFINDER", root_path%></h1>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
 <%# events %>
+<div class="collapse navbar-collapse"></div> 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
@@ -18,8 +19,8 @@
       </li>
       <%# User dropdown %>
       <% if current_user %>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="/drop" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <li class= "text-center" class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           User
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -65,12 +66,14 @@
     <%= yield %>
   </body>
 
+  
+  
   <% if current_user %>
-<%=link_to "Sign out", destroy_user_session_path, method: :delete %>
-<%=link_to 'Profile', current_user %>
+<div class= "text-center"><%=link_to "Sign out", destroy_user_session_path, method: :delete %></div>
+<div class= "text-center"><%=link_to 'Profile', current_user %> </div>
 <%else %>
-<%=link_to "Sign up", new_user_registration_path %>
-<%=link_to "Sign in", new_user_session_path %>
+<div class= "text-center"><%=link_to "Sign up", new_user_registration_path %></div>
+<div class= "text-center"><%=link_to "Sign in", new_user_session_path %></div>
 <%end%> 
 
 </html>
