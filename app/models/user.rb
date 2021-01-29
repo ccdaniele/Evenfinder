@@ -7,6 +7,10 @@ class User < ApplicationRecord
     has_many :eventusers
     has_many :events, through: :eventusers
 
+def coolest_host
+  Event.most_popular.users.first.name
+end
 
+  
 
 end

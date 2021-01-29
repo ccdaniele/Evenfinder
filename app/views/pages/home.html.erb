@@ -1,7 +1,7 @@
 
  <% if current_user %>
  <% if current_user.name  %>
-<p class= "text-center"> <button type="button" class="btn btn-primary">Soon</button> <button type="button" class="btn btn-secondary">Most popular activities</button> <button type="button" class="btn btn-success">Most popular events</button> <p>
+<p class= "text-center"> <a class="btn btn-primary btn-lg btn-block" href="/events" role="button">Link</a> <p>
  
  <% else %>
  <p><h2><%= link_to "Please before continue complete your profile", edit_user_path(current_user)%></h2></p>
