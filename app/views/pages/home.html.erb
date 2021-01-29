@@ -1,8 +1,22 @@
 
  <% if current_user %>
  <% if current_user.name  %>
-<p class= "text-center"> <a class="btn btn-primary btn-lg btn-block" href="/events" role="button">Link</a> <p>
- 
+<h1> Our most popular events: </h1>
+<%Event.most_popular.each do |event|%>
+  <div class="col-sm-6">
+    <div class="card text-white bg-dark mb-3" style="width: 50rem;">
+        <div class="card-body">
+            <h5 class="card-title"><%=event.name.capitalize%></h5>
+            <p class="card-text"><%=event.location.capitalize%></p>
+            <p class="card-text"><%=event.time%></p>
+            <a href="/events/<%=event.id%>" class="btn btn-primary">Details</a>
+      </div>
+    </div>
+  </div>
+<%end%>
+
+
+
  <% else %>
  <p><h2><%= link_to "Please before continue complete your profile", edit_user_path(current_user)%></h2></p>
   <% end %>
@@ -10,7 +24,6 @@
   <%end%>
 
 
- 
 
 
 
