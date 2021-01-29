@@ -1,7 +1,11 @@
 
  <% if current_user %>
  <% if current_user.name  %>
+
+<h1> Our most popular events: <%=Event.most.users.first.name%> </h1>
+
 <h1> Our most popular events: </h1>
+
 <%Event.most_popular.each do |event|%>
   <div class="col-sm-6">
     <div class="card text-white bg-dark mb-3" style="width: 50rem;">
@@ -14,6 +18,8 @@
     </div>
   </div>
 <%end%>
+
+
 
 
 

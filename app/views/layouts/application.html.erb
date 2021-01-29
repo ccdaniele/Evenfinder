@@ -24,11 +24,18 @@
       <li class="nav-item">
         <a class="nav-link" href="/activities">Activities</a> 
       </li>
-      <%# User dropdown %>
       <% if current_user %>
-      <li class= "text-center" class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          User
+      <%# User Profile %>
+       <li class="nav-item">
+        <a class="nav-link" href="/users/<%=current_user.id%>">User profile</a> 
+      </li>
+
+      <%# User edit %>
+       <li class="nav-item">
+        <a class="nav-link" href="/users/<%=current_user.id%>/edit">Edit user</a> 
+      </li>
+      <%# User dropdown %>
+      
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="/users/<%=current_user.id%>">Profile</a>

@@ -11,5 +11,12 @@ class Event < ApplicationRecord
         top_events_array = my_events.reverse.first(3)
     end
 
+    def self.most
+        my_events = Event.all.sort_by{|event|event.users.count}
+        top_events_array = my_events.reverse.first
+    end
+
+
+
 
 end
