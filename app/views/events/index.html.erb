@@ -23,6 +23,17 @@
   </tbody>
 </table>
 
+<% @events.each do |event| %>
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title"><%=event.name%></h5>
+      <p class="card-text"><%=event.location%></p>
+      <p class="card-text"><%=event.time%></p>
+      <a href="/events/<%=event.id%>" class="btn btn-primary">Details</a>
+    </div>
+  </div>
+<% end %>
+
 <br>
 
 <%= link_to 'New Event', new_event_path %>
