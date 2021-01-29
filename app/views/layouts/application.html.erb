@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<h1><%=link_to "EVENTFINDER", root_path%></h1>
+<h1 class = "text-center"><%=link_to "EVENTFINDER", root_path%></h1>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href=>   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,7 +8,7 @@
   </button>
 
 <%# events %>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="text-center" class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" href="/events">Events <span class="sr-only">(current)</span></a>
@@ -61,16 +61,13 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
-  <body>
-  <div id="main-container" class="container">
-      <div class="row">
-        <div class="col-xs-3">
+ 
   <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
   <% if current_user %>
-<%=link_to "Sign out", destroy_user_session_path, method: :delete %>
+<div class= "text-center"<%=link_to "Sign out", destroy_user_session_path, method: :delete %> </div>
 <%=link_to 'Profile', current_user %>
 <%else %>
 <%=link_to "Sign up", new_user_registration_path %>
