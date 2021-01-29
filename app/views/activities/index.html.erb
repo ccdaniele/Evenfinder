@@ -1,3 +1,15 @@
+
+
+<h1> Activities</h1> 
+
 <%@activities.each do |activity|%>
-<li><%= link_to activity.name, activity_path(activity)%></li>
-<%end%>
+  <div class="col-sm-6">
+    <div class="card text-white bg-dark mb-3" style="width: 15rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%=activity.name.capitalize%></h5>
+        <a href="/activities/<%=activity.id%>" class="btn btn-primary"> Events </a>
+      </div>
+    </div>
+  </div>
+  <br>
+<% end %>
