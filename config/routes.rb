@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  root 'welcome#index'
   
   post '/events/:id/join', to: 'events#join', as: 'join'
   post '/events/:id/leave', to: 'events#leave', as: 'leave'
