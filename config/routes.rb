@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :activities 
   root to: 'pages#home'
   
-  devise_for :user
+  # devise_for :user
   resources :users, :only => [:show, :edit, :update]
   resources :activities 
 
