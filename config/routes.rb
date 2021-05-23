@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  root 'welcome#index'
   
   post '/events/:id/join', to: 'events#join', as: 'join'
   post '/events/:id/leave', to: 'events#leave', as: 'leave'
@@ -10,7 +9,7 @@ Rails.application.routes.draw do
   resources :activities 
   root to: 'pages#home'
   
-  # devise_for :user
+  devise_for :user
   resources :users, :only => [:show, :edit, :update]
   resources :activities 
 
